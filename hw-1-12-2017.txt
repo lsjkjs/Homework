@@ -1,3 +1,7 @@
-Exercise 1 Absoulte vs Relative Paths
+Exercise 1 Absolute vs Relative Paths
 
 Answer: 5,7,8,9
+
+Exercise 2 Relative Path Resolution
+
+Answer: 4
