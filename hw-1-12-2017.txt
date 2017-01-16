@@ -9,3 +9,7 @@ Answer: 4
 Exercise 3 ls Reading Comprehension
 
 Answer: 4
+
+Exercise 4 Exploring More ls Arguments
+
+Answer: ls with -l argument uses a long listing format (additional information about the files) and ls with -h argument prints file sizes in human readable formats
