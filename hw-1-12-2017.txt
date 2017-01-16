@@ -1,0 +1,3 @@
+Exercise 1 Absoulte vs Relative Paths
+
+Answer: 5,7,8,9
