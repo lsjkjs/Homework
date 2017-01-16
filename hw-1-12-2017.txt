@@ -5,3 +5,7 @@ Answer: 5,7,8,9
 Exercise 2 Relative Path Resolution
 
 Answer: 4
+
+Exercise 3 ls Reading Comprehension
+
+Answer: 4
