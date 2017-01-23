@@ -8,3 +8,13 @@ Rodentia
 2.
 There are 152 unique families.
 
+3.
+  658  cd ../sandbox/
+  659  tail -n +2 ../data/Pacifici2013_data.csv | cut -d ";" -f 2-6 | tr -s ";" " " | sort -r -n -k 6 > BodyM.csv
+  660  history 3 >> ~/Desktop/eeb-177/Homework/week-2-hw-eeb177.txt 
+
+4.
+The 10th largest species in the database is Eubalaena glacialis
+The 10th smallest species in the database is Pipistrellus nanulus
+
+5.
