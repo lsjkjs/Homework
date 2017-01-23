@@ -18,3 +18,23 @@ The 10th largest species in the database is Eubalaena glacialis
 The 10th smallest species in the database is Pipistrellus nanulus
 
 5.
+  763  wc -l BodyM.csv 
+  764  grep Vombatidae BodyM.csv 
+  765  grep -c Vombatidae BodyM.csv 
+  766  grep Bos BodyM.csv 
+  767  grep -w Bos BodyM.csv 
+  768  grep -i Bos BodyM.csv 
+  769  grep -B 2 -A 2 "Gorilla gorilla" BodyM.csv 
+  770  grep -n "Gorilla gorilla" BodyM.csv 
+  771  grep Gorilla BodyM.csv  | grep -v gorilla
+  772  grep -w "Gorilla\|Pan" BodyM.csv 
+  773  cd ..
+  774  grep -r "Gorilla" data
+  775  history
+  776  history 14 >> ~/Desktop/eeb-177/Homework/week-2-hw-eeb177.txt
+
+6.
+(2) 566026 bytes
+(4) 16 contigs
+(6) 43 unique isogroups
+(7) contig 00302 has the highest number of reads. It has 3330 reads.
