@@ -38,3 +38,25 @@ The 10th smallest species in the database is Pipistrellus nanulus
 (4) 16 contigs
 (6) 43 unique isogroups
 (7) contig 00302 has the highest number of reads. It has 3330 reads.
+
+7.
+  781  for filename in *.txt; do  echo $filename; cp $filename ~/Desktop/eeb-177/CSB/unix/sandbox/temp/edited-$filename; done
+
+8.
+Exercise 1: Using grep
+Answer: 3
+
+Exercise 2: find Pipeline Reading Comprehension
+Answer: The script first looks for all .dat files under the current directory. The wc -l gives us the number of lines in each of these files. By piping the command with sort -n, the script gives us the list of the .dat files in numeric order of the number of lines in each file.
+
+Exercise 3: Matching and Subtracting
+Answer: 3
+
+Exercise 4: Tracking a Species
+Answer:	cut -d : -f 2 | grep -w $1 -r $2 | cut -d , -f 1,3 > $1.txt
+
+Exercise 5: Little Women
+Answer: for "Jo" "Beth" in LittleWomen.txt; do grep -w -i $name | wc -w; done
+
+Exercise 6: Finding Files With Different Properties
+Answer: find ./ -type f -mtime -1 -user ahmed
