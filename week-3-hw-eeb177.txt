@@ -1,0 +1,65 @@
+Question 1.
+1.11.2
+(1.)
+The levels of individual 3 was recorded 61 times.
+The levels of individual 27 was recorded 5 times.
+
+(2.)
+#! /bin/bash
+#What the script does:
+#Take a csv file (first argument) and remove the header
+#Extract the first column
+#Grab and count the number of the ID of the individual (second argument)
+tail -n+2 $1 | cut -f 1 | grep -w -c $2
+
+(3.)
+#! /bin/bash
+#What the script does:
+#Takes a csv file (first argument) and defines its unique individuals as unique_IDs
+#Loops each individual in unique_IDs
+#Define the number of times each individual was sampled as number
+#Echo each individaul and the number of times each individual was sampled
+
+unique_IDs=$(tail -n+2 $1 | cut -f 1 | uniq)
+for ID in $unique_IDs
+do
+number=$(tail -n+2 $1 | cut -f 1 | grep -w -c $ID)
+echo "Individual $ID was sampled $number of times"
+done
+
+Question 2.
+1.11.3
+(1.)
+#! /bin/bash
+#What the script does:
+#Echos the directory of a file (first argument)
+#Takes the file and echos its number of rows
+#Echos the number of columns
+
+echo "Filename: "$1
+rows=$(tail -n +1 $1 | wc -l)
+echo "Number of rows: $rows"
+columns=$(head -n 1 $1 | tr " " "\n" | wc -w)
+echo "Number of columns: $columns"
+
+(2.)
+#! /bin/bash
+#What the script does:
+#Defines all the files in Saavedra2013 into Files
+#Forms a loop that finds the number of rows and columns for each file
+#Echos the file name, its number of rows, and its number of columns
+
+Files=~/Desktop/eeb-177/CSB/unix/data/Saavedra2013/*.txt
+
+for File in $Files
+do
+rows=$(tail -n+1 $File | wc -l)
+columns=$(head -n 1 $File | tr " " "\n" | wc -w)
+echo $File $rows $columns
+done
+
+(3.)
+n58.txt has the largest number of rows.
+n56.txt has the largest number of columns.
+
+
