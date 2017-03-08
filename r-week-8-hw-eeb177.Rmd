@@ -1,0 +1,82 @@
+---
+title: "r-week-8-hw-eeb177.Rmd"
+author: "Jin Sun Kim"
+date: "March 7, 2017"
+output: html_document
+---
+HW 8 
+Part 1
+#6.
+
+```{r}
+library(ggplot2)
+setwd("/home/eeb177-student/Desktop/eeb-177/Homework/")
+canids <- read.csv("canid-ranges.csv", header = F, as.is = T)
+names(canids) <- c("genus", "species", "minage", "maxage")
+head(canids)
+
+canid_occ <- ggplot(canids, aes( species, ymin = maxage, ymax=minage, colour = genus))
+canid_occ <- canid_occ + geom_linerange()
+canid_occ
+
+canid_occ <- canid_occ + theme(legend.position="none")
+canid_occ
+
+canid_occ <- canid_occ + coord_flip()
+canid_occ
+
+canid_occ <- canid_occ +  theme(axis.text.y = element_text(size=3))
+canid_occ
+
+canid_occ <- canid_occ + theme(axis.ticks.y=element_blank())
+canid_occ
+
+canid_occ <- canid_occ + scale_y_continuous(limits=c(0, 40), expand = c(0, 0), breaks=c(0, 10, 20, 30, 40))
+canid_occ
+
+canid_occ <- canid_occ + labs(title = "Canid Fossil Occurrences", x = "Species", y = "Ma ago") + theme(plot.title = element_text(hjust = 0.5, size=22, face = "bold"), axis.title =element_text(size=20))
+canid_occ
+
+ggsave(filename = "canid-occ.pdf", plot = canid_occ)
+```
+
+#7.
+The occurrences of the species of canids are displayed in this figure.
+
+There are 211 unique fossil species contained within the figure.
+
+There are 46 unique fossil genera.
+
+The species Canidae has the longest fossil range.
+
+#8.
+Repeating Part 1b with the clade Aves
+
+```{r}
+library(ggplot2)
+setwd("/home/eeb177-student/Desktop/eeb-177/Homework/")
+Aves <- read.csv("Aves-ranges.csv", header = F, as.is = T)
+names(Aves) <- c("genus", "species", "minage", "maxage")
+
+Aves_occ <- ggplot(Aves, aes( species, ymin = maxage, ymax=minage, colour = genus))
+Aves_occ <- Aves_occ + geom_linerange()
+Aves_occ <- Aves_occ + theme(legend.position="none")
+Aves_occ <- Aves_occ + coord_flip()
+Aves_occ <- Aves_occ +  theme(axis.text.y = element_text(size=2))
+Aves_occ <- Aves_occ + theme(axis.ticks.y=element_blank())
+Aves_occ <- Aves_occ + scale_y_continuous(limits=c(0, 140), expand = c(0, 0), breaks=c(0, 30, 60, 90, 120))
+Aves_occ <- Aves_occ + labs(title = "Canid Fossil Occurrences", x = "Species", y = "Ma ago") + theme(plot.title = element_text(hjust = 0.5, size=22, face = "bold"), axis.title =element_text(size=20))
+Aves_occ
+
+ggsave(filename = "Aves-occ.pdf", plot = Aves_occ)
+```
+
+The occurrences of the species of the clade Aves are displayed in this figure.
+
+There are 1696 unique fossil species of Aves.
+
+There are 984 unique fossil genera of Aves.
+
+The species Aves has the longest fossil range.
+
+
