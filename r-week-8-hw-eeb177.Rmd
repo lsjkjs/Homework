@@ -81,7 +81,8 @@ The species Aves has the longest fossil range.
 
 
 **Part 2: Data Frames **
-1. Exploring Data Frames
+
+#1. Exploring Data Frames
 
 ```{r}
 #Challenge 1.
@@ -106,7 +107,7 @@ str(gapminder)
 
 ```
 
-2. Subsetting Data
+#2. Subsetting Data
 
 ```{r}
 #Challenge 1
@@ -161,7 +162,7 @@ gapminder_small <- gapminder[c(1:9, 19:23),]
 
 ```
 
-3. Creating Publication Quality Graphics
+#3. Creating Publication Quality Graphics
 
 ```{r}
 #Challenge 1
