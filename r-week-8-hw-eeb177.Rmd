@@ -80,3 +80,108 @@ There are 984 unique fossil genera of Aves.
 The species Aves has the longest fossil range.
 
 
+**Part 2: Data Frames **
+1. Exploring Data Frames
+
+```{r}
+#Challenge 1.
+
+df <- data.frame(first = c('Jin Sun'),
+                 last = c('Kim'),
+                 lucky_number = c(7),
+                 stringsAsFactors = FALSE)
+df <- rbind(df, list('Jung', 'Kim', 10) )
+df <- cbind(df, coffeetime = c(TRUE,TRUE))
+
+#Challenge 2.
+source(file = "/home/eeb177-student/scripts/lab-9-script.R")
+
+#Challenge 3.
+str(gapminder)
+
+#gapminder is a data frame with columns
+#country and continent are factors.
+#year is an integer vector.
+#pop, lifeExp, and gdpPercap are numeric vectors
+
+```
+
+2. Subsetting Data
+
+```{r}
+#Challenge 1
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+#1.
+x[2:4]
+#2.
+x[-c(1,5)]
+#3.
+x[c(2,3,4)]
+
+#Challenge 2
+#Answer is A and C
+
+#Challenge 3
+x_subset <- x[x<7 & x>4]
+print(x_subset)
+
+#Challenge 4
+#Answer is D
+
+#Challenge 5
+xlist <- list(a = "Software Carpentry", b = 1:10, data = head(iris))
+
+xlist$b[2]
+
+#Challenge 6
+mod <- aov(pop ~ lifeExp, data=gapminder)
+
+attributes(mod)
+mod$df.residual
+
+#Challenge 7
+#1.
+gapminder[gapminder$year == 1957,]
+#2.
+gapminder[,-c(1:4)]
+#3.
+gapminder[gapminder$lifeExp > 80,]
+#4.
+gapminder[1, c(4, 5)]
+#5.
+gapminder[gapminder$year == 2002 | gapminder$year == 2007,]
+
+#Challenge 8
+#1.
+#Since gapminder is a data.frame, it needs to be subsetted on 2 dimensions. gapminder[1:20, ] subsets the data to give the first 20 rows and all columns.
+#2.
+gapminder_small <- gapminder[c(1:9, 19:23),]
+
+```
+
+3. Creating Publication Quality Graphics
+
+```{r}
+#Challenge 1
+ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
+
+#Challenge 2
+ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) + geom_point()
+#life expectancy is greatest in Europe and smallest in Africa
+
+#Challenge 3
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) + geom_point() + geom_line(aes(color=continent))
+#the lines now get drawn over  the points
+
+#Challenge 4a
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point(size=3, color="orange") + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+
+#Challenge 4b
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) + geom_point(size=3, pch=17) + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+
+#Challenge 5
+ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) + geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
+
+```
